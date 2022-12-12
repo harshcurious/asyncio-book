@@ -1,0 +1,5 @@
+- Threadmem.py is an example for creating threads. I couldn't replicate the 10000 threads created by the author as I ran out of resources. But I could create 5K threads. The threads ran for 60secs
+- cutlery_test.py is a simple program created to use threads.
+  - Run like so: `python cutlery_test.py 100`
+  - It basically adds and replaces forks and knives (in a threaded manner). So the starting state and the end state should be the same.
+  - When running for a large number of cases say 10000, we will get the output to be different each time. This is because the operations `self.knives += knives` and `self.forks += forks` are memory UNsafe operations. We have to add a `with self.lock:` statement to ensure memory safety and correctness.
